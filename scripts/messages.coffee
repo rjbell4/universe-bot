@@ -7,7 +7,7 @@ module.exports = (robot) ->
   robot.respond /universe/gim, (res) ->
     res.send "> GitHub is great, and Training Day is greater!!"
 
-  robot.respond /USERNAME/gim, (res) ->
+  robot.respond /.*\bbob\b.*/gim, (res) ->
     res.send " > That person is awesome"
 
   robot.respond /fruit/gim, (res) ->
@@ -18,3 +18,13 @@ module.exports = (robot) ->
 
   robot.respond /lunch/gim, (res) ->
     res.send " > I want a peanut butter and jelly sandwich for lunch today."
+
+  robot.respond /newbie/gim, (res) ->
+    res.send " > You must be new indeed"
+  
+  robot.hear /I like pie/i, (res) ->
+    res.emote "makes a freshly baked pie"
+  
+  lulz = ['lol', 'rofl', 'lmao']
+  robot.respond /.*\blulz\b.*/i, (res) ->
+    res.send res.random lulz
